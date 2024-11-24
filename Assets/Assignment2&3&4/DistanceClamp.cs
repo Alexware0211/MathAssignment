@@ -6,6 +6,8 @@ public class DistanceClamp : MonoBehaviour
 {
     public GameObject obj1;
     public GameObject obj2;
+    public Material redMat;
+    public Material greenMat;
 
     const float MAX_DISTANCE = 75;
 
@@ -18,7 +20,11 @@ public class DistanceClamp : MonoBehaviour
 
         if (lerp > 0.08)
         {
-            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
+            this.GetComponent<MeshRenderer>().material = greenMat;
+        }
+        if (lerp < 0.08)
+        {
+            this.GetComponent<MeshRenderer>().material = redMat;
         }
     }
 
